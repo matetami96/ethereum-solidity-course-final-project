@@ -83,7 +83,7 @@ const output = JSON.parse(solc.compile(JSON.stringify(input))).contracts[
 				consoleConfig.consoleColors.green,
 				consoleConfig.consoleUnicodes.check,
 				contract,
-				`Contract data was added to ${contract} + .json successfully!`
+				`contract data was added to ${contract}.json successfully!`
 			);
 		}
 	} catch (error) {
