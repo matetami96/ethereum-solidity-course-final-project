@@ -90,7 +90,7 @@ contract Campaign {
     function contribute() public payable {
         // require statement that throws an error if
         // the minimum contribution value is not met
-        require(msg.value > minimumContribution, "A minimum contribution of ether is required!");
+        require(msg.value >= minimumContribution, "A minimum contribution of ether is required!");
         // check if address hasn't contributed before
         require(!approvers[msg.sender], "Contribution is only allowed once per address!");
         // if all is good add this address to the approvers mapping
