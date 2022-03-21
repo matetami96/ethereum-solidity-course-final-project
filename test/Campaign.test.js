@@ -180,7 +180,7 @@ describe("Campaigns", () => {
 
 	it("goes through the whole flow", async () => {
 		// sending ether should happen in wei (calling a method that has payable keyword)
-		// retrieving an account's/contract's balance happens is in wei, should be ether
+		// retrieving an account's/contract's balance happens in wei, should be ether
 		// 1. checks if the Campaign contract was deployed successfully
 		assert(campaign.options.address);
 		// ========================================================================================================

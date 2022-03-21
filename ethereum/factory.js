@@ -4,7 +4,7 @@ import { abi } from "./build/CampaignFactory.json";
 // (we provide the abi and the address to where we have deployed our Factory contract)
 const factoryContract = new web3.eth.Contract(
 	abi,
-	"address-of-the-deployed-factory-contract-here"
+	"0xB8bA62d129B351B5897410fBf07ED12a4EcF7757"
 );
 // by exporting it's instance
 export default factoryContract;

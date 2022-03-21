@@ -9,3 +9,5 @@ ehthumbs.db
 ehthumbs_vista.db
 .next
 .env
+campaign-factory-abi.json
+deployed-contract-address.json
