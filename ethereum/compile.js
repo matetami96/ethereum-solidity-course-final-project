@@ -9,7 +9,7 @@ const fs = require("fs-extra");
 const buildPath = path.resolve(__dirname, "build");
 // get the Solidity file's location from the contracts folder
 const campaignPath = path.resolve(__dirname, "contracts", "Campaign.sol");
-// read the contenta of the file using the file system package
+// read the contents of the file using the file system package
 const source = fs.readFileSync(campaignPath, "utf-8");
 // some extra tweaks for the console logs
 const consoleConfig = {

@@ -68,9 +68,9 @@ const consoleColors = {
 		);
 	} catch (error) {
 		console.log(consoleColors.red, "Contract deploy error: ", error);
-		// ENDING SCRIPT PROCESS
+		// Ending Script Process
 		process.exit();
 	}
-	// ENDING SCRIPT PROCESS
+	// Ending Script Process
 	process.exit();
 })();
