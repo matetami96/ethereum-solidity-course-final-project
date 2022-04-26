@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "compile": "node ethereum/compile.js",
-    "deploy": "node ethereum/deploy.js"
+    "deploy": "node ethereum/deploy.js",
+    "dev": "next dev"
   },
   "keywords": [
     "ethereum",
@@ -15,13 +16,15 @@
   "author": "matetami",
   "license": "ISC",
   "dependencies": {
-    "@artsy/fresnel": "^3.4.0",
     "@truffle/hdwallet-provider": "^2.0.3",
     "dotenv": "^16.0.0",
     "fs-extra": "^10.0.1",
     "ganache-cli": "^6.12.2",
     "lodash": "^4.17.21",
     "mocha": "^9.2.1",
+    "next": "^12.1.5",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "solc": "^0.8.12",
     "web3": "^1.7.1"
   }
