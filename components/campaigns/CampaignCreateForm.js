@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Form, Input, Button, Message } from "semantic-ui-react";
 import { useRouter } from "next/router";
 
 import { web3, factory } from "../../ethereum";
+import CreateForm from "../UI/CreateForm";
 
 const CampaignForm = () => {
 	const [minimumContribution, setMinimumContribution] = useState("");
@@ -50,26 +50,17 @@ const CampaignForm = () => {
 	};
 
 	return (
-		<>
-			<h3>Create a Campaign</h3>
-			<Form onSubmit={submitHandler} error={!!errorMessage}>
-				<Form.Field>
-					<label>Minimum Contribution</label>
-					<Input
-						label="wei"
-						labelPosition="right"
-						value={minimumContribution}
-						onChange={(event) => inputHandler(event.target.value)}
-					/>
-				</Form.Field>
-
-				<Message error header="Oops!" content={errorMessage} />
-
-				<Button primary type="submit" loading={isLoading} disabled={isLoading}>
-					Create
-				</Button>
-			</Form>
-		</>
+		<CreateForm
+			headerTitle="Create a Campaign"
+			label="Minimum Contribution"
+			inputLabel="wei"
+			inputHandler={inputHandler}
+			minimumContribution={minimumContribution}
+			submitHandler={submitHandler}
+			isLoading={isLoading}
+			errorMessage={errorMessage}
+			submitButtonText="Create"
+		/>
 	);
 };
 

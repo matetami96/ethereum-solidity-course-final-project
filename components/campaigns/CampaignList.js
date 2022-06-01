@@ -20,7 +20,8 @@ const CampaignList = ({ campaigns }) => {
 				primary
 				onClick={handleNavigateToCampaignForm}
 			/>
-			<Card.Group items={campaigns} />
+			{campaigns.length > 0 && <Card.Group items={campaigns} />}
+			{campaigns.length === 0 && <div>No campaigns were found!</div>}
 		</>
 	);
 };
