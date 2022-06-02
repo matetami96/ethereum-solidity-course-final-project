@@ -19,12 +19,11 @@ const CampaignForm = () => {
 		setErrorMessage("");
 		setIsLoading(true);
 
-		const accounts = await web3.eth.getAccounts();
-
 		try {
 			if (parseInt(minimumContribution) <= 0) {
 				throw new Error("The entered value must be over 0!");
 			} else {
+				const accounts = await web3.eth.getAccounts();
 				await factory.methods
 					.createCampaign(parseInt(minimumContribution))
 					.send({
@@ -46,6 +45,7 @@ const CampaignForm = () => {
 			}
 			setErrorMessage(message);
 		}
+
 		setIsLoading(false);
 	};
 

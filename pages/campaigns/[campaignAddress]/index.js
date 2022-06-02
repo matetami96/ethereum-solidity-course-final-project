@@ -1,10 +1,11 @@
 import { Grid, Card } from "semantic-ui-react";
-import CampaignContributeForm from "../../../components/campaigns/CampaignContributeForm";
 
+import CampaignContributeForm from "../../../components/campaigns/CampaignContributeForm";
 import { factory, campaign, web3 } from "../../../ethereum";
 
 const CampaignDetails = (props) => {
 	const {
+		campaignAddress,
 		minimumContribution,
 		balance,
 		requestsCount,
@@ -70,7 +71,7 @@ const CampaignDetails = (props) => {
 			<Grid>
 				<Grid.Column width={10}>{renderCards()}</Grid.Column>
 				<Grid.Column width={6}>
-					<CampaignContributeForm />
+					<CampaignContributeForm campaignAddress={campaignAddress} />
 				</Grid.Column>
 			</Grid>
 		</>
