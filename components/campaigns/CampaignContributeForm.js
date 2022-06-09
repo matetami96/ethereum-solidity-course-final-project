@@ -18,6 +18,7 @@ const CampaignContributeForm = (props) => {
 		event.preventDefault();
 		setErrorMessage("");
 		setIsLoading(true);
+
 		const campaignInstance = campaign(props.campaignAddress);
 
 		try {
