@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { Table } from "semantic-ui-react";
 
 import RequestItem from "./RequestItem";
@@ -5,6 +6,12 @@ import RequestItem from "./RequestItem";
 const RequestList = (props) => {
 	const { requests, campaignAddress, approversCount } = props;
 	const { Header, Row, HeaderCell, Body } = Table;
+
+	const router = useRouter();
+
+	const handleReload = () => {
+		router.replace(`/campaigns/${campaignAddress}/requests`);
+	};
 
 	const renderRows = () => {
 		return requests.map((request, index) => {
@@ -15,6 +22,7 @@ const RequestList = (props) => {
 					request={request}
 					campaignAddress={campaignAddress}
 					approversCount={approversCount}
+					onReload={handleReload}
 				/>
 			);
 		});

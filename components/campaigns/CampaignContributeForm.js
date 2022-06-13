@@ -28,12 +28,13 @@ const CampaignContributeForm = (props) => {
 				const accounts = await web3.eth.getAccounts();
 				await campaignInstance.methods.contribute().send({
 					from: accounts[0],
-					value: web3.utils.toWei(parseInt(contributionValue), "ether"),
+					value: web3.utils.toWei(contributionValue, "ether"),
 				});
 				setContributionValue("");
 				router.replace(`/campaigns/${props.campaignAddress}`);
 			}
 		} catch (error) {
+			console.log(error);
 			let message;
 			if (error.code === 4001) {
 				message = error.message.split(":")[1];

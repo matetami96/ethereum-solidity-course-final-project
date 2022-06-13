@@ -15,7 +15,14 @@ const RequestIndex = (props) => {
 	return (
 		<>
 			<h3>Requests</h3>
-			<Button onClick={addRequestHandler} primary>
+			<Button
+				onClick={addRequestHandler}
+				primary
+				floated="right"
+				style={{
+					marginBottom: "1rem",
+				}}
+			>
 				Add Request
 			</Button>
 			<RequestList
@@ -23,6 +30,7 @@ const RequestIndex = (props) => {
 				campaignAddress={campaignAddress}
 				approversCount={approversCount}
 			/>
+			<div>Found {requestCount} requests.</div>
 		</>
 	);
 };
