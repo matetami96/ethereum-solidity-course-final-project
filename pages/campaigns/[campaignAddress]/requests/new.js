@@ -1,4 +1,4 @@
-import CampaignRequestForm from "../../../../components/campaigns/requests/CampaignRequestForm";
+import CampaignRequestForm from "../../../../components/Campaigns/Requests/CampaignRequestForm";
 import { factory } from "../../../../ethereum";
 
 const RequestNew = (props) => {

@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import { factory } from "../ethereum";
-import CampaignList from "../components/campaigns/CampaignList";
+import CampaignList from "../components/Campaigns/CampaignList";
 
 const CampaignIndex = (props) => {
-	// render a list of campaigns
+	// render a list of campaigns using the fetched campaigns as props
 
 	const renderCampaings = () => {
 		const campaigns = props.campaigns.map((campaignAddress) => {
@@ -31,7 +31,7 @@ const CampaignIndex = (props) => {
 export async function getStaticProps() {
 	// fetch deployed campaigns list using the deployed factory contract
 	const campaigns = await factory.methods.getCampaigns().call();
-
+	// return an object that has a 'props' property
 	return {
 		props: {
 			campaigns,

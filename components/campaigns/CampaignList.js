@@ -1,8 +1,6 @@
 import { Button, Card } from "semantic-ui-react";
 import { useRouter } from "next/router";
 
-// import classes from "./CampaignList.module.css";
-
 const CampaignList = ({ campaigns }) => {
 	const router = useRouter();
 

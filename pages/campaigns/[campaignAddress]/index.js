@@ -1,7 +1,7 @@
 import { Grid, Card, Button } from "semantic-ui-react";
 import { useRouter } from "next/router";
 
-import CampaignContributeForm from "../../../components/campaigns/CampaignContributeForm";
+import CampaignContributeForm from "../../../components/Campaigns/CampaignContributeForm";
 import { factory, campaign, web3 } from "../../../ethereum";
 
 const CampaignDetails = (props) => {
@@ -96,12 +96,14 @@ const CampaignDetails = (props) => {
 // this code will never end up on the client side so it is safe to store credentials
 // need to tell NextJS for which dynamic path values to regenerate the page during the build process
 export async function getStaticPaths() {
+	// get campaing list
 	const campaigns = await factory.methods.getCampaigns().call();
 
 	// whether paths array contains all supported parameter values or just some of them
 	// if set to false we tell it that paths contains all supported parameter values
 	// if something not supported is entered we get 404 page
 	// if set to true/blocking NextJS will try to dynamically generate a page for the incoming id on the server
+	// map campaign list to tell NextJS for which dynamic addresses should it render a details page
 	return {
 		fallback: false,
 		paths: campaigns.map((campaignAddress) => ({
@@ -114,10 +116,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
 	const campaignAddress = context.params.campaignAddress;
+	// get the details of a campaign
 	const campaignDetails = await campaign(campaignAddress)
 		.methods.getCampaignDetails()
 		.call();
-
+	// and return them as props
 	return {
 		props: {
 			campaignAddress,

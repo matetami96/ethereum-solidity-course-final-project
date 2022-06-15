@@ -2,7 +2,7 @@ import { Button } from "semantic-ui-react";
 import { useRouter } from "next/dist/client/router";
 
 import { factory, campaign, web3 } from "../../../../ethereum";
-import RequestList from "../../../../components/campaigns/requests/RequestList";
+import RequestList from "../../../../components/Campaigns/Requests/RequestList";
 
 const RequestIndex = (props) => {
 	const { campaignAddress, requestCount, approversCount, requests } = props;
@@ -54,6 +54,9 @@ export async function getStaticProps(context) {
 	const requestCount = await campaignInstance.methods.getRequestsCount().call();
 	const approversCount = await campaignInstance.methods.approversCount().call();
 
+	// because in the contract "requests" is a mapping of request structs
+	// we can't get all of them instantly
+	// so we get all requests that belong to a campaign on by one
 	let requests = await Promise.all(
 		Array(parseInt(requestCount))
 			.fill()
@@ -61,7 +64,8 @@ export async function getStaticProps(context) {
 				return campaignInstance.methods.requests(index).call();
 			})
 	);
-
+	// then we transform the structure of the requests to a
+	// serializable object form in order to use them as props
 	requests = requests.map((request, index) => {
 		const requestItem = {
 			recipient: request["recipient"],
