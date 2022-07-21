@@ -42,7 +42,7 @@ Here are the steps necessary to be able to run the project locally.
 
 After cloning the repo run the following command to install the necessary dependencies:
 
-```
+```console
 npm install
 ```
 
@@ -57,7 +57,7 @@ and to deploy any smart contracts to Rinkeby or Mainnet networks.
 Run this code to compile the Solidity code from the Campaign.sol file located at (./ethereum/contracts/)  
 and to save it in a **build** folder. You will need both the **abi** and **evm** objects from it for the next step.
 
-```
+```console
 npm run compile
 ```
 
@@ -66,7 +66,7 @@ This will deploy the **Factory** contract to the Rinkeby Test Network. (make cha
 The address where your contract was deployed to will be saved in a file called **deployed-contract-address.json**, this  
 will be used when your application is running to deploy a second contract aka when you create a new campaign.
 
-```
+```console
 npm run deploy
 ```
 
@@ -74,7 +74,7 @@ npm run deploy
 
 Run the following code to start a local server for development.
 
-```
+```console
 npm run dev
 ```
 
